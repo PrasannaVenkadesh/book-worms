@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  before_filter :user_has_signed_in, only: [:index, :edit, :update, :destroy]
+  before_filter :correct_user, only: [:edit, :update]
+
+
   # GET /users
   # GET /users.json
   def index
@@ -85,4 +90,12 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
+
 end
