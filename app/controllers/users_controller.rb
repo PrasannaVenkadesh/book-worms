@@ -41,6 +41,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    if @user.save
+      sign_in @user
+      flash[:success] = "Welcome to Book Worms!"
+      redirect_to @user
+    end
 
     respond_to do |format|
       if @user.save
