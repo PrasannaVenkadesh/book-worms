@@ -1,0 +1,10 @@
+<% if @user.collections.any? %>
+<ul>
+	<% @collections.each do |collection| %>
+		<li>
+			<%= collection.book.title %>
+			<%= collection.book.author %>
+		</li>
+	<% end %>
+</ul>
+<% end %>

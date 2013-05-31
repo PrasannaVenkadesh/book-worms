@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row'>
+	<aside class='span4'>
+		<section>
+			<h1>
+				<%= gravatar_for @user %>
+				<%= @user.name %>
+			</h1>
+			<%= @user.email %>
+			<p><%= link_to 'Show my collections', '/collections' %></p>
+		</section>
+	</aside>
+</div>

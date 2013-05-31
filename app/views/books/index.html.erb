@@ -1,0 +1,10 @@
+<h1>Welcome to Library</h1>
+
+<ol class='book-list'>
+<% @books.each do |book| %>
+    <li><%= link_to book.title, book %> Written by <%= book.author %></li>
+<% end %>
+</ol>
+<br />
+
+<%= link_to 'New Book', new_book_path %>

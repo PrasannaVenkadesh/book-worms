@@ -1,0 +1,18 @@
+<h1>Listing collections</h1>
+
+<table>
+  <tr>
+    <th>Book Title</th>
+    <th>Book Id</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collections.each do |collection| %>
+  <tr>
+    <td><%= collection.book.title %></td>
+    <td><%= collection.book_id %></td>
+  </tr>
+<% end %>
+</table>

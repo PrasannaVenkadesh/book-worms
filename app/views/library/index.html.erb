@@ -1,0 +1,23 @@
+<div class='row'>
+	<aside class='span4'>
+		<section>
+			<h1>
+				<%= gravatar_for @user %>
+				<%= @user.name %>
+			</h1>
+			<%= @user.email %>
+			<p><%= link_to 'Show my collections', '/collections' %></p>
+		</section>
+	</aside>
+
+	<div class='span8'>
+		<% if @user.collections.any? %>
+		<h3>You have <%= pluralize(@user.collections.count, 'book') %> in your Collection.</h3>
+			<ul>
+				<%= render @collections %>
+			</ul>
+			<%= will_paginate @collections %>
+		<% end %>
+	</div>
+
+</div>

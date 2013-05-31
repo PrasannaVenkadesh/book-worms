@@ -1,0 +1,9 @@
+<% if signed_in? %>
+	<%= render 'shared/collection' %>
+<% else %>
+	<div class='center hero-unit'>
+		<h1>Book Worms</h1>
+		<p>Keep track of books you read. Join the club here.</p>
+		<%= button_to 'Sign Up', '/signup' , class: 'btn btn-primary btn-large' %>
+	</div>
+<% end %>

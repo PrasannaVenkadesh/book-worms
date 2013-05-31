@@ -1,0 +1,63 @@
+@import 'bootstrap';
+
+/* colors */
+$lightGray: #999;
+
+/* universal */
+.center {
+	text-align: center;
+	h1 {
+		margin-bottom: 10px;
+	}
+}
+
+body {
+	padding-top: 60px;
+}
+
+/* header */
+#logo {
+	float: left;
+	padding-top: 10px;
+	color: #fff;
+	font-size: 1.7em;
+	font-weight: bolder;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+/* footer */
+.footer {
+	margin-top: 45px;
+	border-top: 1px solid #eaeaea;
+	padding-top: 10px;
+	color: $lightGray;
+}
+
+/* user profile */
+.gravatar {
+	img {
+		float: left;
+		margin-right: 10px;
+	}
+}
+
+/* books */
+.book-list {
+	li {
+			border-top: 1px solid $lightGray;
+			&:last-child {
+				border-bottom: 1px solid $lightGray;
+		}
+		a {
+			text-decoration: none;
+			color: #117ac2;
+			&:hover {
+				color: white;
+				text-decoration: none;
+			}
+		}
+	}
+}
