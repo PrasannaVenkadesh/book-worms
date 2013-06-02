@@ -1,6 +1,21 @@
 <h1>Editing book</h1>
 
-<%= render 'form' %>
+<div class='row'>
+	<div class='span2'>
+		<%= form_for(@book) do |f| %>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+
+			<%= f.label :author %>
+			<%= f.text_field :author %>
+
+			<%= f.label :image_url %>
+			<%= f.text_field :image_url %>
+			<br/>
+			<%= f.submit 'Update', class: 'btn btn-primary btn-medium' %>
+		<% end %>
+	</div>
+</div>
 
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>

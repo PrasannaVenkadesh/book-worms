@@ -2,7 +2,11 @@
 
 <ol class='book-list'>
 <% @books.each do |book| %>
-    <li><%= link_to book.title, book %> Written by <%= book.author %></li>
+    <li><%= link_to book.title, book %> Written by <%= book.author %>
+    	<% if @user.collections.where(book_id: book.id).exists? %>
+    	<span> -- already in your collection.</span>
+    	<% end %>
+    </li>
 <% end %>
 </ol>
 <br />

@@ -5,8 +5,12 @@
 				<%= gravatar_for @user %>
 				<%= @user.name %>
 			</h1>
-			<%= @user.email %>
-			<p><%= link_to 'Show my collections', '/collections' %></p>
 		</section>
 	</aside>
+	<div class='span8'>
+		<p><%= link_to 'Show my collections', '/collections' %> | 
+			<%= link_to 'Edit Profile', edit_user_path(@user) %>
+		</p>
+		<strong>Email: </strong><%= @user.email %>
+	</div>
 </div>

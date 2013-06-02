@@ -1,3 +1,4 @@
+<%= image_tag(@book.image_url, class: 'book-cover') %>
 <h4><%= @book.title %></h4>
 <p>Written by <%= @book.author %></p>
 <% if signed_in? %>

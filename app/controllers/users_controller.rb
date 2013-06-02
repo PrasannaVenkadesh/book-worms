@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :user_has_signed_in, only: [:index, :edit, :update, :destroy]
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :correct_user, only: [:show, :edit, :update]
 
 
   # GET /users
@@ -46,15 +46,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to Book Worms!"
-      redirect_to @user
-    end
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        sign_in @user
+        format.html { redirect_to @user, notice: 'Hey, Welcome to Book Worms !' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -70,7 +66,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        sign_in @user
+        flash[:success] = 'Profile Updated successfully.'
+        format.html { redirect_to @user }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

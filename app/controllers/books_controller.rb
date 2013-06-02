@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
 
-  before_filter :user_has_signed_in, only: [:new, :create, :destroy]
+  before_filter :user_has_signed_in, only: [:index, :new, :create, :destroy]
 
   # GET /books
   # GET /books.json
   def index
     @books = Book.all
+    @user = current_user
 
     respond_to do |format|
       format.html # index.html.erb

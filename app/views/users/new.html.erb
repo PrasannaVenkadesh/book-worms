@@ -1,3 +1,25 @@
 <h3>Sign Up for a new account</h3>
 
-<%= render 'form' %>
+<div class='row'>
+	<div class='span6 offset3'>
+
+		<%= form_for(@user) do |f| %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+
+			<%= f.label :password_confirmation, "Confirm Password" %>
+			<%= f.password_field :password_confirmation %>
+			<br/>
+			<%= f.submit 'Sign-up', class: 'btn btn-success btn-large' %>
+
+		<% end %>
+
+	</div>
+</div>

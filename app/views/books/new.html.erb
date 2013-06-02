@@ -1,5 +1,21 @@
-<h1>Add a New book</h1>
+<div class='row'>
+	<div class='span6 offset3'>
+		<h1>Add a New book</h1>
 
-<%= render 'form' %>
+		<%= form_for(@book) do |f| %>
+			<%= f.label :title %>
+			<%= f.text_field :title, placeholder: 'Book Title' %>
+
+			<%= f.label :author %>
+			<%= f.text_field :author, placeholder: 'Author(s) of the book' %>
+
+			<%= f.label :image_url %>
+			<%= f.text_field :image_url, placeholder: 'Copy paste the image url from internet here' %>
+			<br/>
+			<%= f.submit "Add", class: 'btn btn-success btn-small' %>
+		<% end %>
+
+	</div>
+</div>
 
 <%= link_to 'Back', books_path %>
