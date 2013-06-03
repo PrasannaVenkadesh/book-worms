@@ -1,10 +1,21 @@
-<%= image_tag(@book.image_url, class: 'book-cover') %>
-<h4><%= @book.title %></h4>
-<p>Written by <%= @book.author %></p>
-<% if signed_in? %>
-	<% if !current_user.collections.where(book_id: @book.id).exists? %>
-	<%= button_to 'Add to My Collection', collections_path(book_id: @book), class: 'btn btn-primary btn-small' %>
-	<% else %>
-		<%= button_to 'Remove from My Collection', collections_path, method: :delete, confirm: 'Are You Sure?', class: 'btn btn-warning btn-small' %>
-	<% end %>
-<% end %>
+<div class='row'>
+	<aside class='span4'>
+		<section>
+			<%= image_tag(@book.image_url, class: 'book-cover') %>
+			<h4><%= @book.title %></h4>
+			<p>Written by <%= @book.author %></p>
+			<% if signed_in? %>
+				<% if !current_user.collections.where(book_id: @book.id).exists? %>
+					<%= button_to 'Add to My Collection', collections_path(book_id: @book), class: 'btn btn-primary btn-small' %>
+				<% else %>
+					<%= button_to 'Remove from My Collection', collections_path, method: :delete, confirm: 'Are You Sure?', class: 'btn btn-warning btn-small' %>
+				<% end %>
+			<% end %>
+		</section>
+	</aside>
+
+	<div class='span8'>
+		<h3>About the Book</h3>
+		<p>Description goes here</p>
+	</div>
+</div>

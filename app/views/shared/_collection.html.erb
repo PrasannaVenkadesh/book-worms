@@ -1,8 +1,10 @@
 <% if @user.collections.any? %>
+<h5><%= pluralize(@user.collections.count, 'Book') %> in your Collection.</h5>
+<hr>
 <ul>
 	<% @collections.each do |collection| %>
 		<li>
-			<%= collection.book.title %>
+			<%= link_to collection.book.title, collection.book %>
 			<%= collection.book.author %>
 		</li>
 	<% end %>
