@@ -6,4 +6,4 @@ Book worm is in active development still.
 
 For now, Users can sign-up, add books to our library, add books to their own shelf or collection.
 
-[Live Demo](http://booksite.herokuapp.com,"Book-Worms")
+[Live Demo](http://booksite.herokuapp.com "Book-Worms")
