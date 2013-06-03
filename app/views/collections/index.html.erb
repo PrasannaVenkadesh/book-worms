@@ -13,6 +13,7 @@
   <tr>
     <td><%= collection.book.title %></td>
     <td><%= collection.book_id %></td>
+    <td><%= link_to 'remove', collection, method: :delete, data: { confirm: "Are you sure?"} %></td>
   </tr>
 <% end %>
 </table>

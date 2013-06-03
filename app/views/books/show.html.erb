@@ -8,7 +8,8 @@
 				<% if !current_user.collections.where(book_id: @book.id).exists? %>
 					<%= button_to 'Add to My Collection', collections_path(book_id: @book), class: 'btn btn-primary btn-small' %>
 				<% else %>
-					<%= button_to 'Remove from My Collection', collections_path, method: :delete, confirm: 'Are You Sure?', class: 'btn btn-warning btn-small' %>
+					<p>Already in your collection, to remove from your collection,
+						<%= link_to "go here", collections_path %>
 				<% end %>
 			<% end %>
 		</section>

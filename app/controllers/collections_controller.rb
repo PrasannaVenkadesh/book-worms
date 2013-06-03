@@ -60,8 +60,8 @@ class CollectionsController < ApplicationController
   # DELETE /collections/1
   # DELETE /collections/1.json
   def destroy
-    @collection = current_user.collections.where(book_id: @book.id)
-    @collection.destroy_all
+    @collection = Collection.find(params[:id])
+    @collection.destroy
 
     respond_to do |format|
       format.html { redirect_to collections_url }

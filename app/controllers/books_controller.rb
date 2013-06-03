@@ -18,6 +18,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @book = Book.find(params[:id])
+    @collections = current_user.collections
     
     respond_to do |format|
       format.html # show.html.erb
