@@ -15,7 +15,10 @@ class Book < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: true
   validates :author, presence: true
-  validates :image_url, presence: true
+  validates :image_url, presence: true, format: {
+  	with: %r{\.(gif|jpg|png)$}i,
+  	message: 'must be a URL for gif, jpg or png image'
+  }
 
   has_many :collections, dependent: :destroy
 end

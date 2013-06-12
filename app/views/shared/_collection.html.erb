@@ -1,14 +1,15 @@
 <% if @user.collections.any? %>
 <h5><%= pluralize(@user.collections.count, 'Book') %> in your Collection.</h5>
 <hr>
-<ul>
 	<% @collections.each do |collection| %>
-		<li>
-			<%= link_to collection.book.title, collection.book %>
-			<%= collection.book.author %>
-		</li>
+		<div class='view view-first'>
+			<%= image_tag(collection.book.image_url) %>
+			<div class='mask'>
+			<h3><%= collection.book.title %></h3>
+			<p><%= link_to 'More..', collection.book %></p>
+			</div>
+		</div>
 	<% end %>
-</ul>
 <% else %>
 	<h5>Visit our <%= link_to 'Library', books_path %>, Browse & Add books to your Collection.</h5>
 <% end %>

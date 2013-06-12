@@ -11,9 +11,9 @@
 	<div class='span8'>
 		<% if @user.collections.any? %>
 		<h3>You have <%= pluralize(@user.collections.count, 'book') %> in your Collection.</h3>
-			<ul>
+			<div>
 				<%= render @collections %>
-			</ul>
+			</div>
 			<%= will_paginate @collections %>
 		<% else %>
 			<h5>You do not have any books on your Shelf, Add books to your collections by visiting our <%= link_to 'Library', books_path %></h5>
