@@ -1,22 +1,22 @@
 <div class='row'>
 	<aside class='span4'>
 		<section>
-			<%= image_tag(@book.image_url, class: 'book-cover') %>
-			<h4><%= @book.title %></h4>
-			<p>Written by <%= @book.author %></p>
+			<%= image_tag(@book.image_url, class: 'book-cover') %><br><br>
 			<% if signed_in? %>
 				<% if !current_user.collections.where(book_id: @book.id).exists? %>
 					<%= button_to 'Add to My Collection', collections_path(book_id: @book), class: 'btn btn-primary btn-small' %>
 				<% else %>
-					<p>Already in your collection, to remove from your collection,
-						<%= link_to "go here", collections_path %>
+					<p>Already in your collection
+					<br>To remove <%= link_to "go here", collections_path %></p>
 				<% end %>
 			<% end %>
 		</section>
 	</aside>
 
 	<div class='span8'>
-		<h3>About the Book</h3>
+		<h3><%= @book.title %></h3>
+		<p><strong>Author: <%= @book.author %></strong></p><hr/>
+		<h4>About the Book</h4>
 		<p>Description goes here</p>
 	</div>
 </div>
