@@ -6,7 +6,15 @@
 			<%= image_tag(collection.book.image_url) %>
 			<div class='mask'>
 			<h3><%= collection.book.title %></h3>
-			<p><%= link_to 'More..', collection.book %></p>
+			<p><%= link_to 'More..', collection.book %> 
+				<% if collection.status %>
+					Read
+				<% elsif collection.status == false %>
+					Not Read
+				<% else %>
+					Unset
+				<% end %>
+			</p>
 			</div>
 		</div>
 	<% end %>
